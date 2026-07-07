@@ -1,13 +1,18 @@
-# BT - Budget Tracking
+# BT - Sprint 1 + Sprint 2
 
-Telefonda uygulama gibi kullanılabilecek bütçe takip PWA projesi.
+Bu paket BT'nin GitHub + Vercel uyumlu React/Vite web uygulamasıdır.
 
-## Vercel'e yükleme
-1. Bu klasörü GitHub'a yükleyin veya Vercel'de "Import Project" ile bağlayın.
-2. Framework Preset: Vite
-3. Build Command: `npm run build`
-4. Output Directory: `dist`
-5. Deploy.
+## İçerik
+- Claude parity: aylık dönem, devreden bakiye, rapor, arşiv mantığı, kategori dağılımı
+- İşlem ekle / düzenle / sil / ara
+- Gelir-gider kategorileri
+- Hesap sistemi
+- Taksitli gelir ve taksitli gider
+- Taksitler sekmesi ve ödeme planı
+- Tekrarlayan işlemler
+- Kategori ve hesap ekleme
+- Yedek indir / yedek yükle
+- PWA / iPhone ana ekran desteği
 
-## iPhone ana ekrana ekleme
-Safari'de Vercel linkini açın → Paylaş → Ana Ekrana Ekle.
+## Yayınlama
+GitHub BT reposundaki eski dosyaların üzerine bu klasörün içeriğini yükleyip commit yapın. Vercel otomatik deploy eder.
