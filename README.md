@@ -1,18 +1,34 @@
-# BT - Sprint 1 + Sprint 2
+# BT — Budget Tracking 2.0
 
-Bu paket BT'nin GitHub + Vercel uyumlu React/Vite web uygulamasıdır.
+Mobil öncelikli kişisel finans ve finansal hafıza uygulaması.
 
-## İçerik
-- Claude parity: aylık dönem, devreden bakiye, rapor, arşiv mantığı, kategori dağılımı
-- İşlem ekle / düzenle / sil / ara
-- Gelir-gider kategorileri
-- Hesap sistemi
-- Taksitli gelir ve taksitli gider
-- Taksitler sekmesi ve ödeme planı
-- Tekrarlayan işlemler
-- Kategori ve hesap ekleme
-- Yedek indir / yedek yükle
-- PWA / iPhone ana ekran desteği
+## BT 2.0
+- Günlük, haftalık ve aylık finans görünümü
+- Ayın 25'i varsayılan dönem başlangıcı ve döneme özel tarih override'ları
+- Pozitif bakiyeyi sonraki döneme taşıyan devreden bakiye motoru
+- Gelir / gider / net bakiye ve kategori dağılımı
+- Yerel **BT Hafıza** içgörüleri: dönem karşılaştırması, en büyük gider alanı, önündeki 30 günlük planlı ödemeler
+- İşlem ekleme, düzenleme, arama ve güvenli silme
+- 30 günlük çöp kutusu ve hızlı Geri Al
+- Taksitli işlemler: ödeme planı, tamamlama ve yeniden açma
+- Tekrarlayan işlemler: ekleme, düzenleme, duraklatma, yeniden başlatma ve silme
+- Hesap ve kategori yönetimi
+- Hesap bazlı finans raporu
+- Kategori bütçeleri ve bütçe doluluk takibi
+- JSON yedek dışa aktarma ve doğrulanmış geri yükleme
+- Eski `BT_DATA` kayıtlarını koruyan şema normalizasyonu/migration
+- Bozuk eski kayıt için ham kurtarma kopyası
+- Opsiyonel PIN kilidi + PBKDF2/AES-GCM ile cihaz içi şifreli saklama
+- PWA / iPhone ana ekran desteği ve service worker ile offline önbellek
 
-## Yayınlama
-GitHub BT reposundaki eski dosyaların üzerine bu klasörün içeriğini yükleyip commit yapın. Vercel otomatik deploy eder.
+## Güvenlik notu
+PIN kilidi etkinleştirildiğinde PIN sunucuya gönderilmez ve uygulama tarafından kurtarılamaz. PIN'i unutmadan önce güncel bir yedek almak önerilir.
+
+## Geliştirme
+```bash
+npm install
+npm run dev
+npm run build
+```
+
+Vercel yapılandırması repodaki `vercel.json` üzerinden Vite build + `dist` çıktısına sabitlenmiştir.
