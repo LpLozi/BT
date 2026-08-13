@@ -1,7 +1,18 @@
 import{APP_VERSION,defaultData,normalizeData}from'./domain.js';
-const PLAIN='BT_DATA',SECURE='BT_SECURE_V1',CORRUPT='BT_DATA_corrupt_backup_';
+const PLAIN='BT_DATA',SECURE='BT_SECURE_V1',CORRUPT='BT_DATA_corrupt_backup_',RESET='BT_RESET_2026_08_13_1';
 const enc=new TextEncoder(),dec=new TextDecoder();
 const b64=u=>btoa(String.fromCharCode(...u)),unb64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+
+// Kullanıcının açık talebiyle 13.08.2026 tarihinde tek seferlik tam veri sıfırlaması.
+// Bu işaret aynı cihazda sıfırlamanın tekrar çalışmasını engeller.
+try{
+ if(localStorage.getItem(RESET)!=='done'){
+  localStorage.removeItem(PLAIN);
+  localStorage.removeItem(SECURE);
+  Object.keys(localStorage).filter(k=>k.startsWith(CORRUPT)).forEach(k=>localStorage.removeItem(k));
+  localStorage.setItem(RESET,'done');
+ }
+}catch{}
 
 export function hasSecureStorage(){return !!localStorage.getItem(SECURE)}
 export function loadPlainData(){
