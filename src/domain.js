@@ -19,7 +19,7 @@ export const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,
 export const isoLocal=(d=new Date())=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 export const today=()=>isoLocal(new Date());
 export const TL=n=>(Number(n)||0).toLocaleString('tr-TR',{minimumFractionDigits:2,maximumFractionDigits:2})+' ₺';
-export const validAmount=v=>Number.isFinite(Number(v))&&Number(v)>0;
+export const validAmount=v=>{const n=Number(String(v).replace(',','.'));return Number.isFinite(n)&&n>0};
 export const clampDay=n=>Math.max(1,Math.min(28,Number(n)||25));
 
 export function addMonths(ds,m){
@@ -50,7 +50,7 @@ export function carryCalc(tx,y,m,data){
 export function categorySpend(list){return Object.entries(list.filter(t=>t.type==='gider').reduce((a,t)=>(a[t.cat]=(a[t.cat]||0)+Number(t.amount||0),a),{})).sort((a,b)=>b[1]-a[1])}
 export function accountStats(data,list){return data.accounts.map(a=>{const rows=list.filter(t=>t.acc===a.id),income=sum(rows,'gelir'),expense=sum(rows,'gider');return{...a,income,expense,net:income-expense}})}
 export function makeInstallment(form){
- const total=Number(form.amount),count=Math.max(2,Math.floor(Number(form.count)||2));const cents=Math.round(total*100),base=Math.floor(cents/count),items=[];let used=0;
+ const total=Number(String(form.amount).replace(',','.')),count=Math.max(2,Math.floor(Number(form.count)||2));const cents=Math.round(total*100),base=Math.floor(cents/count),items=[];let used=0;
  for(let i=0;i<count;i++){const part=i===count-1?cents-used:base;used+=part;items.push({date:addMonths(form.date,i),amount:part/100})}
  return{id:uid(),type:form.type,cat:form.cat,acc:form.acc,amount:total,date:form.date,note:form.note||'',count,items,status:'active'}
 }
