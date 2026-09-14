@@ -6,3 +6,22 @@
 .clientLoadMore{border:1px solid #34394b;background:#171a25;color:#fff;min-height:44px}
 .clientCard>div,.periodRow>div{min-width:0;overflow-wrap:anywhere}
 @media(max-width:700px){.clientHeader{background:#0b0d14;backdrop-filter:none}.clientMiniGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Compact typography; editing controls remain 16px to avoid iOS focus zoom. */
+.clientOverlay{font-size:13px;line-height:1.5}
+.clientHeader{padding:12px 18px}.clientHeader b{font-size:14px;font-weight:600}
+.clientPageTitle h1{font-size:20px;line-height:1.35;font-weight:600}
+.clientHero h2{font-size:24px;line-height:1.3;font-weight:600}
+.clientKpi{padding:11px;gap:5px}.clientKpi b{font-size:16px;font-weight:600}
+.clientKpi small,.clientHero small{font-size:11px}.clientCard b,.periodRow b{font-size:13px;font-weight:600}
+.clientCard strong,.periodRow strong{font-size:14px;font-weight:600}
+.clientInfo p{font-size:12px;margin:6px 0}.clientSectionHead h2,.clientModalHead h2{font-size:15px;font-weight:600}
+.clientPrimary{font-weight:600}.clientOverlay button{font-family:inherit;font-size:12px}
+.clientExpenses{margin:20px 0}.expenseToolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.expenseToolbar label{font-size:11px;margin:0}.expenseToolbar input{margin-top:5px;padding:9px;max-width:185px}
+.expenseToolbar>div{display:grid;text-align:right;gap:3px}.expenseToolbar small,.clientHint{color:#949cad;font-size:11px}
+.expenseToolbar b{font-size:16px;font-weight:600}.expenseRow{width:100%;display:flex;justify-content:space-between;gap:12px;text-align:left;padding:12px;background:#151823;border:1px solid #262b3b;border-radius:12px;margin-bottom:8px}
+.expenseRow>div{display:grid;gap:4px;min-width:0}.expenseRow>div:last-child{text-align:right;flex-shrink:0}.expenseRow b{font-weight:500;overflow-wrap:anywhere;white-space:pre-wrap}.expenseRow small{color:#949cad;font-size:11px}
+.clientPdfHost{position:fixed;left:-20000px;top:0;width:1080px;pointer-events:none}
+.clientPdf{position:static;left:auto;top:auto;width:1080px;box-sizing:border-box;padding:24px}
+.clientPdf h2{font-size:17px;margin:20px 0 10px}.clientPdf tr{break-inside:avoid}.expenseDescription{white-space:pre-wrap;overflow-wrap:anywhere;max-width:460px}
